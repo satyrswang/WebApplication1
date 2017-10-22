@@ -3,10 +3,16 @@
     <servlet>
         <servlet-name>SimpleServlet</servlet-name>
         <servlet-class>org.wyq.java.SimpleServlet</servlet-class>
+         <servlet-name>XmlServlet</servlet-name>     
+        <servlet-class>org.wyq.java.XmlServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SimpleServlet</servlet-name>
         <url-pattern>/SimpleServlet</url-pattern>
+        
+        <servlet-name>XmlServlet</servlet-name>
+        <url-pattern>/XmlServlet</url-pattern>
+       
     </servlet-mapping>
     <session-config>
         <session-timeout>

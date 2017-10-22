@@ -8,6 +8,8 @@ package org.wyq.java;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author wyq
  */
+
+@WebServlet(description ="simple servlet",initParams={@WebInitParam(name="defaultUser",value="wangyuqing")})
 public class SimpleServlet extends HttpServlet {
 
     /**
@@ -38,7 +42,7 @@ public class SimpleServlet extends HttpServlet {
             out.println("<title>Servlet SimpleServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet SimpleServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>hello webpage</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -56,7 +60,11 @@ public class SimpleServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+       // processRequest(request, response);
+       // System.out.println("hello from get method");
+        PrintWriter out = response.getWriter();
+        out.println("Hello webpage");
+        out.println("defaultUser "+this.getServletConfig().getInitParameter("defaultUser"));
     }
 
     /**
